@@ -86,5 +86,6 @@ public class Soup {
         if (position != -1) {
             letters = letters.substring(0,position)
                     + letters.substring(position + word.length());
+        }
     }
 }
