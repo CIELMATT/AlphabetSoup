@@ -45,7 +45,7 @@ public class Soup {
         }
         
         int index = (int)(Math.random() * letters.length());
-        return letters.charA(index);
+        return letters.charAt(index);
     }
 
 
