@@ -1,3 +1,4 @@
+
 public class Soup {
     //these are instance variables 
     private String letters;
@@ -29,35 +30,50 @@ public class Soup {
 
     //adds a word to the pool of letters known as "letters"
     public void add(String word){
-
+        letters += word;
     }
 
 
     //Use Math.random() to get a random character from the letters string and return it.
     public char randomLetter(){
-        return 'a';
+        int index = (int)(Math.random() * letters.length());
+        return letters.charA(index);
     }
 
 
     //returns the letters currently stored with the company name placed directly in the center of all
     //the letters
     public String companyCentered(){
-        return "";
+        int middle = letters.length() / 2;
+        return letters.substring(0,middle) + company + letters.substring(middle);
     }
 
 
     //should remove the first available vowel from letters. If there are no vowels this method has no effect.
     public void removeFirstVowel(){
-        
+        for (int i = 0; i < letters.length(); i++) {
+            char c = letters.charAt(i);
+
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'I' || c == 'O' || c == 'U') {
+
+                letters = letters.substring(0,i) + letters.substring(i + 1);
+                return;
+            }
+        }
     }
 
     //should remove "num" letters from a random spot in the string letters. You may assume num never exceeds the length of the string.
     public void removeSome(int num){
-
+        int start = (int)(Math.random() * (letters.length() - num + 1));
+        letters = letters.substring(0,start) + letters.substring(start + num);
     }
 
     //should remove the word "word" from the string letters. If the word is not found in letters then it does nothing.
     public void removeWord(String word){
-        
+        int position = letters.indexOf(word);
+
+        if (position != -1) {
+            letters = letters.substring(0,position)
+                    + letters.substring(position + word.length());
     }
 }
